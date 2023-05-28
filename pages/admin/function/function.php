@@ -1,6 +1,6 @@
 <?php
 require_once ("../../../include/initialize.php");
-	 
+
 
 $action = (isset($_GET['action']) && $_GET['action'] != '') ? $_GET['action'] : '';
 switch ($action) {
@@ -20,6 +20,10 @@ switch ($action) {
     update();
     break;
 
+    case 'delete' :
+    delete();
+    break;
+
     case 'plot' :
     plot();
     break;
@@ -29,7 +33,7 @@ switch ($action) {
     break;
 
 }
-   
+
 function accept(){
     global $con;
     $grave_no = $_GET['graveid'];
@@ -48,7 +52,7 @@ function accept(){
                             header("location: ../index.php?page=request");
                         } else {
                             message ("Something went wrong please try again later","error");
-                            header("location: ../index.php?page=request");    
+                            header("location: ../index.php?page=request");
                         }
                     } else {
                         message ("Something went wrong please try again later","error");
@@ -60,7 +64,7 @@ function accept(){
                 }
             } else {
                 message ("Something went wrong please try again later","error");
-                header("location: ../index.php?page=request");    
+                header("location: ../index.php?page=request");
             }
         } else {
             message ("Something went wrong please try again later","error");
@@ -91,7 +95,7 @@ function deny(){
                             }
                         } else {
                             message ("Something went wrong please try again later","error");
-                            header("location: ../index.php?page=request");    
+                            header("location: ../index.php?page=request");
                         }
                     } else {
                         message ("Something went wrong please try again later","error");
@@ -101,10 +105,10 @@ function deny(){
                     message ("Something went wrong please try again later","error");
                     header("location: ../index.php?page=request");
                 }
-                
+
             } else {
                 message ("Something went wrong please try again later","error");
-                header("location: ../index.php?page=request");    
+                header("location: ../index.php?page=request");
             }
         } else {
             message ("Something went wrong please try again later","error");
@@ -119,9 +123,9 @@ function add(){
     $deceased_fname = $deceased_mname = $deceased_gender = $deceased_agegroup = $deceased_contactname = $deceased_contactno = $deceased_contactemail = $deceased_lname = $deceased_birthdate = $deceased_deathdate = $deceased_graveno = $userfile = $deceasedfile = $ext = $ext2 = "";
     $user_id = $_SESSION['id'];
     $deceased_fname_error = $deceased_mname_error = $deceased_lname_error = $deceased_gender_error = $deceased_agegroup_error = $deceased_contactname_error = $deceased_contactno_error = $deceased_contactemail_error = $deceased_birthdate_error = $deceased_deathdate_error = $deceased_graveno_error = $userfile_error = $deceasedfile_error = "";
-    
+
     if(isset($_POST['btn-submit'])){
-    
+
         if (empty($_POST["deceased-firstname"])) {
             $deceased_fname_error = "true";
         }elseif (!preg_match('/^[a-zA-Z]+$/', $_POST["deceased-firstname"])) {
@@ -136,7 +140,7 @@ function add(){
             $deceased_mname_error = "Middlename can only contain letters";
         }else {
             $deceased_mname = $_POST["deceased-middlename"];
-        } 
+        }
 
         if (empty($_POST["deceased-lastname"])) {
             $deceased_lname_error = "true";
@@ -175,7 +179,7 @@ function add(){
         }else {
             $deceased_contactname = $_POST["deceased-contactname"];
         }
-        
+
         if (empty($_POST["grave-no"])) {
             $deceased_graveno_error = "true";
             message ("Fields must not be empty","error");
@@ -186,7 +190,7 @@ function add(){
         $deceased_contactemail = $_POST["deceased-contactemail"];
         $deceased_contactno = $_POST["deceased-contactno"];
         $count = $_GET['count'] + 1;
-        $plot_status = "occupied".$count;        
+        $plot_status = "occupied".$count;
 
         if (empty($deceased_fname_error) && empty($deceased_lname_error) && empty($deceased_birthdate_error) && empty($deceased_deathdate_error) && empty($deceased_graveno_error) && empty($deceased_gender_error) && empty($deceased_agegroup_error) && empty($deceased_contactname_error)) {
             $sql = "INSERT INTO grave_record (record_name, record_birth, record_death, record_gender, record_agegroup, record_contactperson, record_contactno, record_contactemail, record_visibility, grave_id) VALUE (?,?,?,?,?,?,?,?,?,?)";
@@ -209,20 +213,20 @@ function add(){
                             header("location: ../index.php?page=record");
                         } else {
                             message ("Something went wrong please try again later","error");
-                            header("location: ../index.php?page=record");    
-                        } 
+                            header("location: ../index.php?page=record");
+                        }
                     } else {
                         message ("Something went wrong please try again later","error");
-                        header("location: ../index.php?page=record");    
+                        header("location: ../index.php?page=record");
                     }
                 } else {
                     message ("Something went wrong please try again later","error");
                     header("location: ../index.php?page=record");
-                }  
+                }
         } else {
             message ("Something went wrong please try again later","error");
             header("location: ../index.php?page=record");
-        }                 
+        }
     }
     $stmt->close();
 }
@@ -232,9 +236,9 @@ function update(){
     $deceased_name = $deceased_gender = $deceased_agegroup = $deceased_contactname = $deceased_contactno = $deceased_contactemail = $deceased_birthdate = $deceased_deathdate = $deceased_graveno = "";
     $deceased_name_error = $deceased_gender_error = $deceased_agegroup_error = $deceased_contactname_error = $deceased_contactno_error = $deceased_contactemail_error = $deceased_birthdate_error = $deceased_deathdate_error = $deceased_graveno_error = "";
     $record_id = $_GET['record_id'];
-    
+
     if(isset($_POST['btn-submit'])){
-    
+
         if (empty($_POST["deceased-name"])) {
             $deceased_name_error = "true";
         }else {
@@ -289,7 +293,7 @@ function update(){
         }else {
             $deceased_graveno = $_POST["grave-no"];
         }
-                
+
         if (empty($deceased_name_error) && empty($deceased_birthdate_error) && empty($deceased_deathdate_error) && empty($deceased_graveno_error) && empty($deceased_gender_error) && empty($deceased_agegroup_error) && empty($deceased_contactname_error) && empty($deceased_contactno_error) && empty($deceased_contactemail_error)) {
             $sql = "UPDATE grave_record SET record_name = ?, record_birth = ?, record_death = ?, record_gender = ?, record_agegroup = ?, record_contactperson = ?, record_contactno = ?, record_contactemail = ?, grave_id = ? WHERE record_id = ?";
                 if ($stmt = $mysqli->prepare($sql)) {
@@ -309,16 +313,39 @@ function update(){
                         header("location: ../index.php?page=record");
                     } else {
                         message ("Something went wrong please try again later","error");
-                        header("location: ../index.php?page=record");    
+                        header("location: ../index.php?page=record");
                     }
                 } else {
                     message ("Something went wrong please try again later","error");
                     header("location: ../index.php?page=record");
-                }  
+                }
         } else {
             message ("Something went wrong please try again later","error");
             header("location: ../index.php?page=record");
-        }                 
+        }
+    }
+    $stmt->close();
+}
+
+function delete(){
+    global $mysqli;
+    $record_id = $_GET['record_id'];
+
+    if(isset($_POST['btn-submit'])){
+
+        $sql = "DELETE FROM grave_record WHERE record_id = $record_id";
+        if ($stmt = $mysqli->prepare($sql)) {
+            if ($stmt->execute()) {
+                message ("The record has been deleted successfully","success");
+                header("location: ../index.php?page=record");
+            } else {
+                message ("Something went wrong please try again later","error");
+                header("location: ../index.php?page=record");
+            }
+        } else {
+            message ("Something went wrong please try again later","error");
+            header("location: ../index.php?page=record");
+        }
     }
     $stmt->close();
 }
@@ -328,7 +355,7 @@ function plot(){
     $point = $coordinate = "";
     $point_error = $coordinate_error = "";
     if(isset($_POST['btn-insert'])){
-    
+
         if (empty($_POST["plot-point"])) {
             $point_error = "true";
         }else {
@@ -346,7 +373,7 @@ function plot(){
         $result = mysqli_query($mysqli, $query);
         $ai = mysqli_fetch_array($result);
         $max_id = $ai['max_no']+1;
-                
+
         if (empty($plot_coordinate) && empty($plot_point)) {
             $sql = "INSERT INTO grave_data (grave_no, coordinates) VALUES (?,?)";
                 if ($stmt = $mysqli->prepare($sql)) {
@@ -355,20 +382,20 @@ function plot(){
                         $param_coordinate = $point. ", " .$coordinate;
                     if ($stmt->execute()) {
                             message ("Plot has been inserted successfully","success");
-                            header("location: ../index.php?page=map");    
+                            header("location: ../index.php?page=map");
                     } else {
                         message ("Something went wrong please try again later","error");
-                        header("location: ../index.php?page=insert_plot");    
+                        header("location: ../index.php?page=insert_plot");
                     }
                     $stmt->close();
                 } else {
                     message ("Something went wrong please try again later","error");
                     header("location: ../index.php?page=insert_plot");
-                }  
+                }
         } else {
             message ("Something went wrong please try again later","error");
             header("location: ../index.php?page=insert_plot");
-        }                 
+        }
     }
 }
 
@@ -377,7 +404,7 @@ function img(){
     $img_ext = $img_file = "";
     $img_error = "";
     $grave_id = $_GET['graveid'];
-    
+
     if(isset($_POST['btn-save'])){
         if (empty($_FILES["grave-img"])) {
             $img_error = "true";
@@ -393,7 +420,7 @@ function img(){
                 header("location: ../index.php?page=map");
             } else {
                 $path = '../../../upload/';
-                
+
                 $maxid = mysqli_query($con,"SELECT MAX(id) FROM grave_file");
                 $row = mysqli_fetch_array($maxid);
                 $img_file = ($row[0]+1) . '-' . $img_file;
@@ -411,7 +438,7 @@ function img(){
                         header("location: ../index.php?page=map");
                     } else {
                         message ("Something went wrong please try again later");
-                        header("location: ../index.php?page=map");    
+                        header("location: ../index.php?page=map");
                     }
                     $stmt->close();
                 }
