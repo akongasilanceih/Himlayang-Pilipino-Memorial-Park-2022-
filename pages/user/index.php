@@ -24,11 +24,6 @@ switch ($view) {
         $content='map.php';
         $map='active';
         break;
-    case 'acc' :
-        $title="Account Panel";
-        $content='../admin/tabs/account.php';
-        $acc='active';
-        break;
 }
 require_once("template/user_template.php");
 ?>

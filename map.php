@@ -188,7 +188,7 @@ include_once 'include/config.php';
                 lineJoin: 'bevel',
                 weight: 4.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_MapOutline_1');
@@ -196,7 +196,7 @@ include_once 'include/config.php';
         map.getPane('pane_MapOutline_1').style['mix-blend-mode'] = 'normal';
         var layer_MapOutline_1 = new L.geoJson(json_MapOutline_1, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_MapOutline_1',
             layerName: 'layer_MapOutline_1',
             pane: 'pane_MapOutline_1',
@@ -230,7 +230,7 @@ include_once 'include/config.php';
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(196,60,57,0.7)',
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_comfortRoom_2');
@@ -238,7 +238,7 @@ include_once 'include/config.php';
         map.getPane('pane_comfortRoom_2').style['mix-blend-mode'] = 'normal';
         var layer_comfortRoom_2 = new L.geoJson(json_comfortRoom_2, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_comfortRoom_2',
             layerName: 'layer_comfortRoom_2',
             pane: 'pane_comfortRoom_2',
@@ -270,7 +270,7 @@ include_once 'include/config.php';
                 lineJoin: 'round',
                 weight: 8.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
         }
 
@@ -284,7 +284,7 @@ include_once 'include/config.php';
                 lineJoin: 'round',
                 weight: 6.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_road_3');
@@ -292,7 +292,7 @@ include_once 'include/config.php';
         map.getPane('pane_road_3').style['mix-blend-mode'] = 'normal';
         var layer_road_3 = new L.geoJson.multiStyle(json_road_3, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_road_3',
             layerName: 'layer_road_3',
             pane: 'pane_road_3',
@@ -326,7 +326,7 @@ include_once 'include/config.php';
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(1,118,157,0.65)',
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_UndevelopedPortion_4');
@@ -334,7 +334,7 @@ include_once 'include/config.php';
         map.getPane('pane_UndevelopedPortion_4').style['mix-blend-mode'] = 'normal';
         var layer_UndevelopedPortion_4 = new L.geoJson(json_UndevelopedPortion_4, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_UndevelopedPortion_4',
             layerName: 'layer_UndevelopedPortion_4',
             pane: 'pane_UndevelopedPortion_4',
@@ -368,7 +368,7 @@ include_once 'include/config.php';
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(136,0,234,0.65)',
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_DambanangAlala_5');
@@ -376,7 +376,7 @@ include_once 'include/config.php';
         map.getPane('pane_DambanangAlala_5').style['mix-blend-mode'] = 'normal';
         var layer_DambanangAlala_5 = new L.geoJson(json_DambanangAlala_5, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_DambanangAlala_5',
             layerName: 'layer_DambanangAlala_5',
             pane: 'pane_DambanangAlala_5',
@@ -410,7 +410,7 @@ include_once 'include/config.php';
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(223,229,54,0.65)',
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_FloranteatLaura_6');
@@ -418,7 +418,7 @@ include_once 'include/config.php';
         map.getPane('pane_FloranteatLaura_6').style['mix-blend-mode'] = 'normal';
         var layer_FloranteatLaura_6 = new L.geoJson(json_FloranteatLaura_6, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_FloranteatLaura_6',
             layerName: 'layer_FloranteatLaura_6',
             pane: 'pane_FloranteatLaura_6',
@@ -452,7 +452,7 @@ include_once 'include/config.php';
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(229,182,54,0.65)',
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_Lagoon_7');
@@ -460,7 +460,7 @@ include_once 'include/config.php';
         map.getPane('pane_Lagoon_7').style['mix-blend-mode'] = 'normal';
         var layer_Lagoon_7 = new L.geoJson(json_Lagoon_7, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_Lagoon_7',
             layerName: 'layer_Lagoon_7',
             pane: 'pane_Lagoon_7',
@@ -494,7 +494,7 @@ include_once 'include/config.php';
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(232,113,141,0.65)',
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_Chapel_8');
@@ -502,7 +502,7 @@ include_once 'include/config.php';
         map.getPane('pane_Chapel_8').style['mix-blend-mode'] = 'normal';
         var layer_Chapel_8 = new L.geoJson(json_Chapel_8, {
             attribution: '',
-            interactive: true,
+            interactive:false,
             dataVar: 'json_Chapel_8',
             layerName: 'layer_Chapel_8',
             pane: 'pane_Chapel_8',
@@ -536,7 +536,7 @@ include_once 'include/config.php';
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(213,180,60,0.65)',
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_AdministrationBLDG_9');
@@ -544,7 +544,7 @@ include_once 'include/config.php';
         map.getPane('pane_AdministrationBLDG_9').style['mix-blend-mode'] = 'normal';
         var layer_AdministrationBLDG_9 = new L.geoJson(json_AdministrationBLDG_9, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_AdministrationBLDG_9',
             layerName: 'layer_AdministrationBLDG_9',
             pane: 'pane_AdministrationBLDG_9',
@@ -578,7 +578,7 @@ include_once 'include/config.php';
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(229,182,54,0.65)',
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_Parking_10');
@@ -586,7 +586,7 @@ include_once 'include/config.php';
         map.getPane('pane_Parking_10').style['mix-blend-mode'] = 'normal';
         var layer_Parking_10 = new L.geoJson(json_Parking_10, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_Parking_10',
             layerName: 'layer_Parking_10',
             pane: 'pane_Parking_10',
