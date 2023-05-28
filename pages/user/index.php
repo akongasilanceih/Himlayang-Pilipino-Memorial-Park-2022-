@@ -3,7 +3,7 @@
 // 1. nilagyan ko ng acc yung switch
 require_once("../../include/initialize.php");
 require_once("../../include/config.php");
- 
+
 	if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === false){
         header("location: ../../login/index.php");
         exit;
@@ -15,7 +15,7 @@ require_once("../../include/config.php");
 		header("location: ../../login/index.php");
         exit;
 	}
- 
+
 $content='user_template.php';
 $view = (isset($_GET['page']) && $_GET['page'] != '') ? $_GET['page'] : '';
 switch ($view) {
@@ -27,4 +27,4 @@ switch ($view) {
 }
 require_once("template/user_template.php");
 ?>
- 
+

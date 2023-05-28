@@ -1,40 +1,38 @@
 <?php
-// EDITED
-// 1. Nilagyan ko ng account tab sa nav bar
 include_once 'C:\xampp\htdocs\include\config.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
- 
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
- 
+
     <title><?php echo $title;?></title>
- 
+
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/pages/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="/pages/assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="/pages/assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="/pages/assets/fonts/fontawesome5-overrides.min.css">
- 
+
     <!-- WEB QGIS CSS Components -->
     <link rel="stylesheet" href="/webmap/css/leaflet.css">
     <link rel="stylesheet" href="/webmap/css/L.Control.Locate.min.css">
     <link rel="stylesheet" href="/webmap/css/qgis2web.css">
     <link rel="stylesheet" href="/webmap/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="/webmap/css/leaflet-search.css">
- 
+
     <!-- DataTable -->
     <link rel="stylesheet" href="/pages/assets/DataTables/datatables.css">
- 
+
     <!-- Custom Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
     <link rel="stylesheet" href="/pages/assets/css/admin.css">
- 
+
 </head>
- 
+
 <body id="page-top">
     <div id="wrapper">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-secondary p-0">
@@ -46,7 +44,6 @@ include_once 'C:\xampp\htdocs\include\config.php';
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item"><a class="nav-link <?php echo $map; ?>" href="/pages/user/index.php?page=map"><i class="fas fa-map"></i><span>Map</span></a></li>
-                    <li class="nav-item"><a class="nav-link <?php echo $acc; ?>" href="/pages/user/index.php?page=acc"><i class="fas fa-user"></i><span>Account</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
@@ -78,7 +75,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
                 </div>
                 <?php require_once $content; ?>
             </div>
- 
+
             <footer class="bg-white sticky-footer">
                 <div class="container my-auto">
                     <div class="text-center my-auto copyright"><span>Copyright © Himlayang Pilipino Memorial Park 2022</span></div>
@@ -86,7 +83,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
- 
+
     <script src="ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="/pages/assets/js/jquery.min.js"></script>
     <script src="/pages/assets/bootstrap/js/bootstrap.min.js"></script>
@@ -96,10 +93,10 @@ include_once 'C:\xampp\htdocs\include\config.php';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <!-- <script src="ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
     <script src="/pages/assets/js/tables.js"></script>
- 
+
     <!-- Optional -->
     <script src="/pages/assets/js/popper.js"></script>
- 
+
     <!-- Web QGIS Components -->
     <script src="/webmap/js/qgis2web_expressions.js"></script>
     <script src="/webmap/js/leaflet.js"></script>
@@ -128,16 +125,16 @@ include_once 'C:\xampp\htdocs\include\config.php';
     <script src="/webmap/data/VaultFabricationArea_13.js"></script>
     <script src="/webmap/data/gravekeepsmain_14.js"></script>
     <script src="/webmap/data/Centroids_15.js"></script>
- 
+
     <!-- Extra Functions -->
     <script src="/pages/assets/js/receipt.js"></script>
     <script src="/pages/assets/js/preloader.js"></script>
     <script src="/pages/assets/js/refresh.js"></script>
     <script src="/pages/assets/js/fixedtab.js"></script>
- 
+
     <!-- DataTables -->
     <script src="/pages/assets/DataTables/datatables.js"></script>
- 
+
     <?php
         $result = mysqli_query($mysqli, "SELECT * FROM grave_record
         RIGHT JOIN grave_data ON grave_record.grave_id=grave_data.id
@@ -155,15 +152,15 @@ include_once 'C:\xampp\htdocs\include\config.php';
                 //      if ($interval->y) { $result .= $interval->format("%y years"); }
                 //      if ($interval->m) { $result .= $interval->format("%m months"); }
                 //      if ($interval->d) { $result .= $interval->format("%d days"); }
- 
+
                 //      return $result;
                 //  }
                 while($row = mysqli_fetch_array($result)) {
- 
+
                     // $deathdate = new DateTime($row['record_death']);
                     // $currentdate = new DateTime(@date('Y-m-d H:i:s'));
                     // $difference = $deathdate->diff($currentdate);
- 
+
                     //$deathdate = date_create($row['record_death']);
                     //$currentdate = date_create(@date('Y'));
                     //$decomposedate = date_create($row['record_death']);
@@ -171,7 +168,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
                     //$decomposedate->modify('+8 year');
                     //$difference = date_diff($deathdate, $currentdate)->format('%y');
                     // $difference = date_diff($deathdate, $currentdate);
- 
+
                     if ($row['status'] == 'occupied1' OR 'occupied2' OR 'occupied3') {
             ?>
         { "type": "Feature", "properties": { "Grave No.": "<?php echo $row['grave_no']?>",
@@ -212,7 +209,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
                         ?>",
             "auxiliary_storage_labeling_offsetquad": "<?php echo $row['label']; ?>" },
             "geometry": { "type": "Point", "coordinates": [<?php $trim = str_replace('""', '', $row['coordinates']); echo $trim; ?>] } },
- 
+
             <?php
                     } else {
                         $trim = str_replace('""', '', $row['coordinates']);
@@ -231,7 +228,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
         ]
         }
     </script>
- 
+
      <script>
         var map = L.map('map', {
             zoomControl: true,
@@ -255,7 +252,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
             }
         }).addTo(map);
         var bounds_group = new L.featureGroup([]);
- 
+
         function setBounds() {}
         map.createPane('pane_Satellite_0');
         map.getPane('pane_Satellite_0').style.zIndex = 400;
@@ -270,7 +267,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
         });
         layer_Satellite_0;
         map.addLayer(layer_Satellite_0);
- 
+
         function pop_MapOutline_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -282,7 +279,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
                 maxHeight: 400
             });
         }
- 
+
         function style_MapOutline_1_0() {
             return {
                 pane: 'pane_MapOutline_1',
@@ -310,7 +307,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
         });
         bounds_group.addLayer(layer_MapOutline_1);
         map.addLayer(layer_MapOutline_1);
- 
+
         function pop_comfortRoom_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -322,7 +319,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
                 maxHeight: 400
             });
         }
- 
+
         function style_comfortRoom_2_0() {
             return {
                 pane: 'pane_comfortRoom_2',
@@ -352,7 +349,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
         });
         bounds_group.addLayer(layer_comfortRoom_2);
         map.addLayer(layer_comfortRoom_2);
- 
+
         function pop_road_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -364,7 +361,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
                 maxHeight: 400
             });
         }
- 
+
         function style_road_3_0() {
             return {
                 pane: 'pane_road_3',
@@ -378,7 +375,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
                 interactive: true,
             }
         }
- 
+
         function style_road_3_1() {
             return {
                 pane: 'pane_road_3',
@@ -406,7 +403,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
         });
         bounds_group.addLayer(layer_road_3);
         map.addLayer(layer_road_3);
- 
+
         function pop_UndevelopedPortion_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -418,7 +415,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
                 maxHeight: 400
             });
         }
- 
+
         function style_UndevelopedPortion_4_0() {
             return {
                 pane: 'pane_UndevelopedPortion_4',
@@ -448,7 +445,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
         });
         bounds_group.addLayer(layer_UndevelopedPortion_4);
         map.addLayer(layer_UndevelopedPortion_4);
- 
+
         function pop_DambanangAlala_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -460,7 +457,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
                 maxHeight: 400
             });
         }
- 
+
         function style_DambanangAlala_5_0() {
             return {
                 pane: 'pane_DambanangAlala_5',
@@ -490,7 +487,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
         });
         bounds_group.addLayer(layer_DambanangAlala_5);
         map.addLayer(layer_DambanangAlala_5);
- 
+
         function pop_FloranteatLaura_6(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -502,7 +499,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
                 maxHeight: 400
             });
         }
- 
+
         function style_FloranteatLaura_6_0() {
             return {
                 pane: 'pane_FloranteatLaura_6',
@@ -532,7 +529,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
         });
         bounds_group.addLayer(layer_FloranteatLaura_6);
         map.addLayer(layer_FloranteatLaura_6);
- 
+
         function pop_Lagoon_7(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -544,7 +541,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
                 maxHeight: 400
             });
         }
- 
+
         function style_Lagoon_7_0() {
             return {
                 pane: 'pane_Lagoon_7',
@@ -574,7 +571,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
         });
         bounds_group.addLayer(layer_Lagoon_7);
         map.addLayer(layer_Lagoon_7);
- 
+
         function pop_Chapel_8(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -586,7 +583,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
                 maxHeight: 400
             });
         }
- 
+
         function style_Chapel_8_0() {
             return {
                 pane: 'pane_Chapel_8',
@@ -616,7 +613,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
         });
         bounds_group.addLayer(layer_Chapel_8);
         map.addLayer(layer_Chapel_8);
- 
+
         function pop_AdministrationBLDG_9(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -628,7 +625,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
                 maxHeight: 400
             });
         }
- 
+
         function style_AdministrationBLDG_9_0() {
             return {
                 pane: 'pane_AdministrationBLDG_9',
@@ -658,7 +655,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
         });
         bounds_group.addLayer(layer_AdministrationBLDG_9);
         map.addLayer(layer_AdministrationBLDG_9);
- 
+
         function pop_Parking_10(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -670,7 +667,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
                 maxHeight: 400
             });
         }
- 
+
         function style_Parking_10_0() {
             return {
                 pane: 'pane_Parking_10',
@@ -700,7 +697,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
         });
         bounds_group.addLayer(layer_Parking_10);
         map.addLayer(layer_Parking_10);
- 
+
         function pop_MechanicalShop_11(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -712,7 +709,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
                 maxHeight: 400
             });
         }
- 
+
         function style_MechanicalShop_11_0() {
             return {
                 pane: 'pane_MechanicalShop_11',
@@ -742,7 +739,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
         });
         bounds_group.addLayer(layer_MechanicalShop_11);
         map.addLayer(layer_MechanicalShop_11);
- 
+
         function pop_Canteen_12(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -754,7 +751,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
                 maxHeight: 400
             });
         }
- 
+
         function style_Canteen_12_0() {
             return {
                 pane: 'pane_Canteen_12',
@@ -784,7 +781,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
         });
         bounds_group.addLayer(layer_Canteen_12);
         map.addLayer(layer_Canteen_12);
- 
+
         function pop_VaultFabricationArea_13(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -796,7 +793,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
                 maxHeight: 400
             });
         }
- 
+
         function style_VaultFabricationArea_13_0() {
             return {
                 pane: 'pane_VaultFabricationArea_13',
@@ -826,7 +823,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
         });
         bounds_group.addLayer(layer_VaultFabricationArea_13);
         map.addLayer(layer_VaultFabricationArea_13);
- 
+
         function pop_gravekeepsmain_14(feature, layer) {
             var popupContent = '<table class="popup-feature-map" data-sitename="' + feature.properties['SiteName'] + '">\
                     <tr>\
@@ -856,7 +853,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
- 
+
         function style_gravekeepsmain_14_0() {
             return {
                 pane: 'pane_gravekeepsmain_14',
@@ -886,16 +883,16 @@ include_once 'C:\xampp\htdocs\include\config.php';
         });
         bounds_group.addLayer(layer_gravekeepsmain_14);
         map.addLayer(layer_gravekeepsmain_14);
- 
+
         //asd
         function pop_Centroids_15(feature, layer) {
             var popupContent = function temp() {
                 var label = feature.properties['SiteName'];
- 
- 
+
+
                 var data = {};
                 data.label = label;
- 
+
                 $.ajax({
                     url: "test.php",
                     method: "post",
@@ -906,7 +903,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
                         feature.properties['DoB'] = json.DoB;
                         feature.properties['DoD'] = json.DoD;
                         feature.properties['LotAvail'] = json.LotAvail;
- 
+
                         console.log(feature.properties);
                         var content = '<table class="popup-feature-map" data-sitename="' + feature.properties['SiteName'] + '">\
                     <tr>\
@@ -937,7 +934,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
                         layer.setPopupContent(content);
                     }
                 })
- 
+
                 return '<table class="popup-feature-map" data-sitename="' + feature.properties['SiteName'] + '">\
                     <tr>\
                         <th scope="row">SiteName</th>\
@@ -965,10 +962,10 @@ include_once 'C:\xampp\htdocs\include\config.php';
                     </tr>\
                 </table>';
             }
- 
+
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
- 
+
         function style_Centroids_15_0() {
             return {
                 pane: 'pane_Centroids_15',
@@ -1046,12 +1043,12 @@ include_once 'C:\xampp\htdocs\include\config.php';
             resetLabels([layer_comfortRoom_2, layer_road_3, layer_UndevelopedPortion_4, layer_DambanangAlala_5]);
         });
     </script>
- 
+
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             // Listen to visibility changes in all ".popup-feature-map"s
             var popupFeatureMapElements = document.getElementsByClassName('leaflet-interactive');
- 
+
             // for each map element...
             for (let popup in popupFeatureMapElements) {
                 // ...listen to any changes in visibility
@@ -1066,7 +1063,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
         })
     </script>
     </script>
- 
+
 </body>
 </html>
- 
+
