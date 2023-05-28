@@ -10,8 +10,8 @@
                         <div class="card-body">
                             <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
                                 <table class="table my-0" id="deceased-table">
-                                    <?php 
-                                        $result = mysqli_query($mysqli, "SELECT * FROM grave_record 
+                                    <?php
+                                        $result = mysqli_query($mysqli, "SELECT * FROM grave_record
                                         LEFT JOIN grave_data ON grave_record.grave_id=grave_data.id WHERE status = 'occupied1' OR status = 'occupied2' OR status = 'occupied3'");
                                     ?>
                                     <thead>
@@ -46,6 +46,7 @@
                                                         <div class="dropdown-menu" aria-labelledby="moreMenu">
                                                             <a class="dropdown-item" href="index.php?name='.$nametrim.' & page=contact_person">Contact Person</a>
                                                             <a class="dropdown-item" href="index.php?id='.$row['record_id'].' & page=edit_record">Edit</a>
+                                                            <a class="dropdown-item" href="index.php?id='.$row['record_id'].' & page=del_record">Delete</a>
                                                         </div>
                                                     </div>
                                                     </td>';
@@ -58,4 +59,4 @@
                         </div>
                     </div>
                 </div>
-            
+
