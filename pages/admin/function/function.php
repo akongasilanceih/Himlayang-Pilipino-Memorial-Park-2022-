@@ -333,11 +333,24 @@ function delete(){
 
     if(isset($_POST['btn-submit'])){
 
-        $sql = "DELETE FROM grave_record WHERE record_id = $record_id";
+        $query = mysqli_query($mysqli, "SELECT * FROM grave_record WHERE record_id = '$record_id'");
+        $row = mysqli_fetch_array($query);
+        $grave_id = $row['grave_id'];
+
+        // Update grave_data first
+        $sql = "UPDATE grave_data SET status = 'vacant' WHERE id = '$grave_id'";
         if ($stmt = $mysqli->prepare($sql)) {
             if ($stmt->execute()) {
-                message ("The record has been deleted successfully","success");
-                header("location: ../index.php?page=record");
+                // Delete record
+                $sqldelete = "DELETE FROM grave_record WHERE record_id = $record_id";
+                $stmtdelete = $mysqli->prepare($sqldelete);
+                if ($stmtdelete->execute()) {
+                    message ("The record has been deleted successfully","success");
+                    header("location: ../index.php?page=record");
+                } else {
+                    message ("Something went wrong please try again later","error");
+                    header("location: ../index.php?page=record");
+                }
             } else {
                 message ("Something went wrong please try again later","error");
                 header("location: ../index.php?page=record");
