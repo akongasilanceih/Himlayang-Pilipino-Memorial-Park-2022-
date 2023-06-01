@@ -2,7 +2,7 @@
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
                         <h3 class="text-dark mb-0">Dashboard</h3>
                     </div>
-                    
+
                     <div class="row">
 
                         <div class="col-lg-8 col-xl-9">
@@ -58,7 +58,7 @@
                                                             // $vacant = mysqli_num_rows($sql_vacant);
                                                             $vacant = mysqli_fetch_array($sql_vacant);
                                                             $vacant_count = $vacant['max_grave'];
-                                                            
+
                                                             // $vacant_count = 0;
                                                             // for ($vacant_result = 0; $vacant > $vacant_result; $vacant_result++) {
                                                             //     $vacant_count = $vacant_count + 1;

@@ -4,7 +4,7 @@
 // 2. yung dalawang unang header tinanggal ko yung "login" dumodoble kasi
 require_once("../../../include/initialize.php");
 require_once("../../../include/config.php");
- 
+
 	// if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === false){
     //     header("location: ../../login.php");
     //     exit;
@@ -21,7 +21,7 @@ require_once("../../../include/config.php");
 		header("location: ../../index.php");
         exit;
 	}
- 
+
 if (isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "admin") {
     $content='record.php';
     $view = (isset($_GET['page']) && $_GET['page'] != '') ? $_GET['page'] : '';
@@ -56,6 +56,11 @@ if (isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "admin") {
             $content='activity.php';
             $activity='active';
             break;
+        case 'dashbaord' :
+            $title="Dashboard - Himlayang Pilipino";
+            $content='dashboard.php';
+            $dashboard='active';
+            break;
         // FUNCTION CONNECTOR
         case 'add' :
             $title="New Record - Himlayang Pilipino Memorial Park";
@@ -66,7 +71,7 @@ if (isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "admin") {
             $content='function/merge.php';
             break;
         // END CONNECTOR
- 
+
         // TABS
         case 'add_employee' :
             $title="New Employee - Himlayang Pilipino Memorial Park";
@@ -74,7 +79,7 @@ if (isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "admin") {
             $employee='active';
             break;
     // TABS END
- 
+
         // OTHER
         case 'insert' :
             $title="New Record - Himlayang Pilipino Memorial Park";
@@ -107,7 +112,7 @@ if (isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "admin") {
             $account='active';
         break;
         //
- 
+
         default :
             $title="Dashboard - Himlayang Pilipino Memorial Park";
             $content ='dashboard.php';
@@ -115,7 +120,7 @@ if (isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "admin") {
     }
     require_once("template/admin_template.php");
 }
- 
+
 elseif (isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "clerk") {
     $content='record.php';
     $view = (isset($_GET['page']) && $_GET['page'] != '') ? $_GET['page'] : '';
@@ -145,7 +150,7 @@ elseif (isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "clerk") {
             $content='function/merge.php';
             break;
         // END CONNECTOR
- 
+
         // TABS
         case 'add_employee' :
             $title="New Employee - Himlayang Pilipino Memorial Park";
@@ -153,7 +158,7 @@ elseif (isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "clerk") {
             $employee='active';
             break;
     // TABS END
- 
+
         // OTHER
         case 'insert' :
             $title="New Record - Himlayang Pilipino Memorial Park";
@@ -186,7 +191,7 @@ elseif (isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "clerk") {
             $record='active';
         break;
         //
- 
+
         default :
             $title="Dashboard - Himlayang Pilipino Memorial Park";
             $content ='dashboard.php';
@@ -195,4 +200,4 @@ elseif (isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "clerk") {
     require_once("template/admin_template.php");
 }
 ?>
- 
+

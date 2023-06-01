@@ -33,6 +33,8 @@ include_once 'C:\xampp\htdocs\include\config.php';
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
     <link rel="stylesheet" href="../../pages/assets/css/admin.css">
 
+    <script src="https://cdn.plot.ly/plotly-2.20.0.min.js" charset="utf-8"></script>
+
 </head>
 
 <body id="page-top">
@@ -46,19 +48,15 @@ include_once 'C:\xampp\htdocs\include\config.php';
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item"><a class="nav-link <?php echo $home; ?>" href="../../pages/admin/index.php?page=home"><i class="fas fa-tachometer-alt"></i><span>Home</span></a></li>
+                    <li class="nav-item"><a class="nav-link <?php echo $dashboard; ?>" href="../../pages/admin/index.php?page=dashboard"><i class="fas fa-chart-bar"></i><span>Dashboard</span></a></li>
+
+                    <li class="nav-item"><a class="nav-link <?php echo $record; ?>" href="../../pages/admin/index.php?page=record"><i class="fas fa-table"></i><span>Record</span></a></li>
+                    <li class="nav-item"><a class="nav-link <?php echo $map; ?>" href="../../pages/admin/index.php?page=map"><i class="fas fa-map"></i><span>Map</span></a></li>
                     <?php if (isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "admin") { ?>
 
-                        <li class="nav-item"><a class="nav-link <?php echo $home; ?>" href="../../pages/admin/index.php?page=home"><i class="fas fa-tachometer-alt"></i><span>Home</span></a></li>
-                        <li class="nav-item"><a class="nav-link <?php echo $record; ?>" href="../../pages/admin/index.php?page=record"><i class="fas fa-table"></i><span>Record</span></a></li>
-                        <li class="nav-item"><a class="nav-link <?php echo $map; ?>" href="../../pages/admin/index.php?page=map"><i class="fas fa-map"></i><span>Map</span></a></li>
                         <li class="nav-item"><a class="nav-link <?php echo $activity; ?>" href="../../pages/admin/index.php?page=activity"><i class="fas fa-book"></i><span>Activity</span></a></li>
                         <li class="nav-item"><a class="nav-link <?php echo $account; ?>" href="../../pages/admin/index.php?page=account"><i class="fas fa-users"></i><span>Account</span></a></li>
-
-                    <?php } elseif (isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "clerk") { ?>
-
-                        <li class="nav-item"><a class="nav-link <?php echo $home; ?>" href="../../pages/admin/index.php?page=home"><i class="fas fa-tachometer-alt"></i><span>Home</span></a></li>
-                        <li class="nav-item"><a class="nav-link <?php echo $record; ?>" href="../../pages/admin/index.php?page=record"><i class="fas fa-table"></i><span>Record</span></a></li>
-                        <li class="nav-item"><a class="nav-link <?php echo $map; ?>" href="../../pages/admin/index.php?page=map"><i class="fas fa-map"></i><span>Map</span></a></li>
 
                     <?php } ?>
 
@@ -965,7 +963,7 @@ include_once 'C:\xampp\htdocs\include\config.php';
         document.addEventListener("DOMContentLoaded", () => {
             // Listen to visibility changes in all ".popup-feature-map"s
             var popupFeatureMapElements = document.getElementsByClassName('leaflet-interactive');
-    
+
             // for each map element...
             for (let popup in popupFeatureMapElements) {
                 // ...listen to any changes in visibility
