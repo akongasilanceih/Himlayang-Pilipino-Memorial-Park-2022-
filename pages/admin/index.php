@@ -52,6 +52,11 @@ if (isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "admin") {
             $content='activity.php';
             $activity='active';
             break;
+        case 'dashboard' :
+            $title="Dashboard - Himlayang Pilipino";
+            $content='dashboard.php';
+            $dashboard='active';
+            break;
 
 
         // FUNCTION CONNECTOR
